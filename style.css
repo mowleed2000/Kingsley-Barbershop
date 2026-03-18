@@ -99,6 +99,11 @@ body {
     margin-top: 2px;
 }
 
+@media (max-width: 480px) {
+    .logo-top { font-size: 1.4rem; }
+    .logo-bottom { font-size: 0.5rem; letter-spacing: 2px; }
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -462,6 +467,12 @@ cite {
     margin-bottom: 15px;
 }
 
+/* Cursor touch check */
+@media (pointer: coarse) {
+    .custom-cursor { display: none; }
+    * { cursor: auto; }
+}
+
 .hours-list {
     list-style: none;
 }
@@ -535,16 +546,33 @@ cite {
 @media (max-width: 1024px) {
     .nav-links { display: none; }
     .location-grid { grid-template-columns: 1fr; gap: 60px; }
-    .hero-content { text-align: center; }
+    .hero-content { 
+        text-align: center; 
+        margin: 0 auto;
+        padding-top: 100px;
+    }
     .hero-actions { justify-content: center; }
-    h1 { font-size: 4rem; }
+    h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
 }
 
 @media (max-width: 768px) {
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { flex-direction: column; gap: 40px; text-align: center; }
-    .container { padding: 0 25px; }
-    h2 { font-size: 2.5rem; }
-    .hero-bg { background-position: 75% 15%; } /* Offset person on small screens */
-    .hero-overlay { background: rgba(0,0,0,0.7); } /* Darker mobile overlay for text visibility */
+    .container { padding: 0 20px; }
+    h2 { font-size: 2.2rem; }
+    .hero-bg { background-position: center; } 
+    .hero-overlay { background: rgba(0,0,0,0.75); }
+    .subheading { font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.3rem; }
+    .hero-actions { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: center;
+    }
+    .btn { width: 100%; max-width: 280px; text-align: center; }
+    .nav-btn { padding: 10px 15px; font-size: 0.7rem; }
+    .hero { height: auto; min-height: 100vh; padding: 120px 0 80px; }
 }
